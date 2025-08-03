@@ -20,6 +20,7 @@ public final class SimpleCombat extends JavaPlugin {
         scoreboardManager = new ScoreboardManager(this);
 
         // Register event listeners
+        getServer().getPluginManager().registerEvents(new CombatListener(this), this);
         getServer().getPluginManager().registerEvents(new CombatListener(this, combatManager), this);
         getServer().getPluginManager().registerEvents(new CommandListener(this, combatManager), this);
 
