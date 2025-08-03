@@ -2,9 +2,10 @@ package vadlox.dev.simpleCombat;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import vadlox.dev.simpleCombat.combat.CombatManager;
-import vadlox.dev.simpleCombat.listeners.CombatListener;
 import vadlox.dev.simpleCombat.listeners.CommandListener;
 import vadlox.dev.simpleCombat.scoreboard.ScoreboardManager;
+// Import the correct CombatListener class
+import vadlox.dev.simpleCombat.combat.CombatListener;
 
 public final class SimpleCombat extends JavaPlugin {
     private CombatManager combatManager;
@@ -19,9 +20,8 @@ public final class SimpleCombat extends JavaPlugin {
         combatManager = new CombatManager(this);
         scoreboardManager = new ScoreboardManager(this);
 
-        // Register event listeners
+        // Register event listeners - fix duplicate listener registration
         getServer().getPluginManager().registerEvents(new CombatListener(this), this);
-        getServer().getPluginManager().registerEvents(new CombatListener(this, combatManager), this);
         getServer().getPluginManager().registerEvents(new CommandListener(this, combatManager), this);
 
         getLogger().info("SimpleCombat has been enabled!");
