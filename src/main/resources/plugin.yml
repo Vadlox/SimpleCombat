@@ -1,0 +1,5 @@
+name: SimpleCombat
+version: '1.0'
+main: vadlox.dev.simpleCombat.SimpleCombat
+api-version: '1.21'
+website: vadlox.hydraquest.net
